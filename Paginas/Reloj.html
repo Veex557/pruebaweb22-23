@@ -1,13 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+ 
+<html>
+ 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reloj</title>
+   <title>Reloj</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="../estil/general.css">
+  
+   <style>
+       h1 {
+           font-size: 50px;
+           text-align: center;
+       }
+ 
+       div {
+           font-size: 60px;
+           color: rgb(255, 0, 255);
+           text-align: center;
+       }
+   </style>
+   <script>
+       function startTime() {
+           var today = new Date();
+           var h = today.getHours();
+           var m = today.getMinutes();
+           var s = today.getSeconds();
+           m = checkTime(m);
+           s = checkTime(s);
+           document.getElementById('txt').innerHTML =
+               h + ":" + m + ":" + s;
+           var t = setTimeout(startTime, 500);
+       }
+       function checkTime(i) {
+           if (i < 10) { i = "0" + i }; // add zero in front of numbers < 10
+           return i;
+       }
+   </script>
 </head>
-<body>
-    <div style="text-align:right;padding:1em 0;"><a href="../index.html">Inicio</a></div>
-    <div style="text-align:center;padding:1em 0;"> <h3><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/es/city/2512989"><span style="color:gray;">Hora actual en</span><br />Palma, España</a></h3> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=medium&timezone=Europe%2FMadrid" width="100%" height="115" frameborder="0" seamless></iframe> </div>
+ 
+<body onload="startTime()">
+   <header>PrevaWeb: una web de prueba.</header>
+   <h1> Reloj Aplicaciones Web </h1>
+   <div id="txt"></div>
+   <footer><a href="../index.html">home</a></footer>
 </body>
+ 
 </html>

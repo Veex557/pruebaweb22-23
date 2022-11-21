@@ -1,4 +1,4 @@
-<a href="../indice.html">indice</a>
+<a href="../index.html">inici</a>
 <?php
 phpinfo();
 ?>
